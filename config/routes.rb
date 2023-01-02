@@ -6,4 +6,11 @@ Rails.application.routes.draw do
 
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
+
+  # Sleep actions
+  get "/sleeps" => "sleeps#index"
+  get "/sleeps/:id" => "sleeps#show"
+  post "/sleeps" => "sleeps#create"
+  patch "/sleeps/:id" => "sleeps#update"
+  delete "/sleeps/:id" => "sleeps#destroy"
 end
