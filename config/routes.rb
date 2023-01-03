@@ -20,4 +20,11 @@ Rails.application.routes.draw do
   post "/waters" => "waters#create"
   patch "/waters/:id" => "waters#update"
   delete "/waters/:id" => "waters#destroy"
+
+  # Goal actions
+  get "/goals" => "goals#index"
+  et "/goals/:id" => "goals#show"
+  post "/goals" => "goals#create"
+  patch "/goals/:id" => "goals#update"
+  delete "/goals/:id" => "goals#destroy"
 end
