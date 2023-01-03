@@ -24,7 +24,7 @@ Content-Type: application/json
 ### Sleep create
 POST http://localhost:3000/sleeps.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 {
   "asleep": "22:00",
@@ -36,23 +36,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwN
 
 GET http://localhost:3000/sleeps.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 
 ### Sleep show
 GET http://localhost:3000/sleeps/1.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 ### Sleep destroy
 DELETE http://localhost:3000/sleeps/1.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 ### Sleep update
 PATCH http://localhost:3000/sleeps/1.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 { "asleep": "22:00",
   "awake": "7:00",
@@ -61,12 +61,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwN
 ### water index
   GET http://localhost:3000/waters.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 ### water show
   GET http://localhost:3000/waters/2.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 ### water create
 POST http://localhost:3000/waters.json
@@ -82,7 +82,7 @@ Authorization: Bearer {{jwt}}
 ### water update
 PATCH http://localhost:3000/waters/1.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 {
   "time": "23:00",
@@ -93,7 +93,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwN
 ### water destroy
 DELETE http://localhost:3000/waters/1.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI4NTQwNDF9.d5hC9EbeED1rXcK02jBLcocqWGtX81R1OOXvW5RtFRQ
+Authorization: Bearer {{jwt}}
 
 ### goal create
 POST http://localhost:3000/goals.json
@@ -101,6 +101,31 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "goal": "8 cups",
+  "goal": "7 cups",
   "category": "water"
 }
+
+### goal update
+PATCH http://localhost:3000/goals/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "goal": "5 cups",
+  "category": "water"
+}
+
+### goal delete
+DELETE http://localhost:3000/goals/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### goal index
+GET http://localhost:3000/goals.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### goal show
+GET http://localhost:3000/goals/2.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
