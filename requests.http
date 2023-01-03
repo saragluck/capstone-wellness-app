@@ -56,3 +56,40 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3O
 { "asleep": "22:00",
   "awake": "7:00",
   "date": "2023-02-01" }
+
+### water index
+  GET http://localhost:3000/waters.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3ODB9.dXV9zojXprhgd3gZ1doKsH1S5LvRUw4Oxq1oXkxWuYU
+
+### water show
+  GET http://localhost:3000/waters/2.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3ODB9.dXV9zojXprhgd3gZ1doKsH1S5LvRUw4Oxq1oXkxWuYU
+
+### water create
+POST http://localhost:3000/waters.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3ODB9.dXV9zojXprhgd3gZ1doKsH1S5LvRUw4Oxq1oXkxWuYU
+
+{
+  "time": "7:00",
+  "date": "2023-01-03",
+  "amount": "1"
+}
+
+### water update
+PATCH http://localhost:3000/waters/1.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3ODB9.dXV9zojXprhgd3gZ1doKsH1S5LvRUw4Oxq1oXkxWuYU
+
+{
+  "time": "23:00",
+  "date": "2023-01-03",
+  "amount": "2"
+}
+
+### water destroy
+DELETE http://localhost:3000/waters/1.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI3ODA3ODB9.dXV9zojXprhgd3gZ1doKsH1S5LvRUw4Oxq1oXkxWuYU
