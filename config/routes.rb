@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   # Goal actions
   get "/goals" => "goals#index"
-  et "/goals/:id" => "goals#show"
+  get "/goals/:id" => "goals#show"
   post "/goals" => "goals#create"
   patch "/goals/:id" => "goals#update"
   delete "/goals/:id" => "goals#destroy"
