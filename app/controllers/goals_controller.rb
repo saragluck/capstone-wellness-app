@@ -13,19 +13,19 @@ class GoalsController < ApplicationController
 
   #Index action
   def index
-    goals = Goal.all
+    goals = current_user.goals.all
     render json: goals.as_json
   end
 
   #Show action
   def show
-    goal = Goal.find_by(id: params[:id])
+    goal = current_user.goals.find_by(id: params[:id])
     render json: goal.as_json
   end
 
   #Update action
   def update
-    goal = Goal.find_by(id: params[:id])
+    goal = current_user.goals.find_by(id: params[:id])
     goal.update(
       goal: params[:goal] || goal.goal,
       category: params[:category] || goal.category,
@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
 
   #destroy action
   def destroy
-    goal = Goal.find_by(id: params[:id])
+    goal = current_user.goals.find_by(id: params[:id])
     goal.destroy
     render json: { message: "goal destroyed" }
   end

@@ -1,13 +1,13 @@
 require 'http'
 
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzI4NTUyNzd9.UFH_PSstUA8WYfXRrbIbG8POYfPA6vTxTRTYnE8rteM
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzI4NTg3ODB9.TulmQsigmCCJkOXBa5GFmg9MPgyNcLyp70h-0STNP1E
 ### Users create (signup)
 POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
   "name": "Test name",
-  "email": "test@example.com",
+  "email": "amanda@example.com",
   "password": "password",
   "password_confirmation": "password"
 } 
@@ -17,7 +17,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
+  "email": "amanda@example.com",
   "password": "password"
 }
 
@@ -40,17 +40,17 @@ Authorization: Bearer {{jwt}}
 
 
 ### Sleep show
-GET http://localhost:3000/sleeps/1.json
+GET http://localhost:3000/sleeps/6.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### Sleep destroy
-DELETE http://localhost:3000/sleeps/1.json
+DELETE http://localhost:3000/sleeps/7.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### Sleep update
-PATCH http://localhost:3000/sleeps/1.json
+PATCH http://localhost:3000/sleeps/8.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### water show
-  GET http://localhost:3000/waters/2.json
+  GET http://localhost:3000/waters/8.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -80,7 +80,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### water update
-PATCH http://localhost:3000/waters/1.json
+PATCH http://localhost:3000/waters/8.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -91,7 +91,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### water destroy
-DELETE http://localhost:3000/waters/1.json
+DELETE http://localhost:3000/waters/8.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -106,7 +106,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### goal update
-PATCH http://localhost:3000/goals/1.json
+PATCH http://localhost:3000/goals/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -116,7 +116,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### goal delete
-DELETE http://localhost:3000/goals/1.json
+DELETE http://localhost:3000/goals/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -126,6 +126,6 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### goal show
-GET http://localhost:3000/goals/2.json
+GET http://localhost:3000/goals/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}

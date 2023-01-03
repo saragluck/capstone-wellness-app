@@ -13,19 +13,19 @@ class WatersController < ApplicationController
 
   #Index action
   def index
-    waters = Water.all
+    waters = current_user.waters.all
     render json: waters.as_json
   end
 
   #Show action
   def show
-    water = Water.find_by(id: params[:id])
+    water = current_user.waters.find_by(id: params[:id])
     render json: water.as_json
   end
 
   #Update action
   def update
-    water = Water.find_by(id: params[:id])
+    water = current_user.waters.find_by(id: params[:id])
     water.update(
       time: params[:time] || water.time,
       date: params[:date] || water.date,
@@ -36,7 +36,7 @@ class WatersController < ApplicationController
 
   #destroy action
   def destroy
-    water = Water.find_by(id: params[:id])
+    water = current_user.waters.find_by(id: params[:id])
     water.destroy
     render json: { message: "water destroyed" }
   end
