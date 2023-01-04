@@ -64,7 +64,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### water show
-  GET http://localhost:3000/waters/8.json
+  GET http://localhost:3000/waters/9.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -80,18 +80,18 @@ Authorization: Bearer {{jwt}}
 }
 
 ### water update
-PATCH http://localhost:3000/waters/8.json
+PATCH http://localhost:3000/waters/9.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
   "time": "23:00",
   "date": "2023-01-03",
-  "amount": "2"
+  "amount": "3"
 }
 
 ### water destroy
-DELETE http://localhost:3000/waters/8.json
+DELETE http://localhost:3000/waters/9.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -116,7 +116,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### goal delete
-DELETE http://localhost:3000/goals/5.json
+DELETE http://localhost:3000/goals/6.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -126,6 +126,6 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### goal show
-GET http://localhost:3000/goals/5.json
+GET http://localhost:3000/goals/6.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
