@@ -27,4 +27,11 @@ Rails.application.routes.draw do
   post "/goals" => "goals#create"
   patch "/goals/:id" => "goals#update"
   delete "/goals/:id" => "goals#destroy"
+
+  # Productivity actions
+  get "/productivity" => "productivity#index"
+  get "/productivity/:id" => "productivity#show"
+  post "/productivity" => "productivity#create"
+  patch "/productivity/:id" => "productivity#update"
+  delete "/productivity/:id" => "productivity#destroy"
 end
