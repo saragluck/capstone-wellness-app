@@ -1,0 +1,2 @@
+class ProductivityController < ApplicationController
+end
