@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_many :goals
   has_many :waters
   has_many :sleeps
+  has_many :productivities
 end

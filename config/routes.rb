@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   delete "/goals/:id" => "goals#destroy"
 
   # Productivity actions
-  get "/productivity" => "productivity#index"
-  get "/productivity/:id" => "productivity#show"
-  post "/productivity" => "productivity#create"
-  patch "/productivity/:id" => "productivity#update"
-  delete "/productivity/:id" => "productivity#destroy"
+  get "/productivity" => "productivities#index"
+  get "/productivity/:id" => "productivities#show"
+  post "/productivity" => "productivities#create"
+  patch "/productivity/:id" => "productivities#update"
+  delete "/productivity/:id" => "productivities#destroy"
 end

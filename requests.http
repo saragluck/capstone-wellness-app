@@ -1,6 +1,7 @@
 require 'http'
 
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzI4NTg3ODB9.TulmQsigmCCJkOXBa5GFmg9MPgyNcLyp70h-0STNP1E
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzMzODI0NjJ9.fuiXj-0z_1iSdBXb7hdJGDGm1Od4Gn13UAl4SpZR1AA
+
 ### Users create (signup)
 POST http://localhost:3000/users.json
 Content-Type: application/json
@@ -127,5 +128,21 @@ Authorization: Bearer {{jwt}}
 
 ### goal show
 GET http://localhost:3000/goals/6.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### productivity create
+POST http://localhost:3000/productivity.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "level": "4",
+  "time": "4:00",
+  "date": "01/01/2023"
+}
+
+### productivity show
+GET http://localhost:3000/productivity/3.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
