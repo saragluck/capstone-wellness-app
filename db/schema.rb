@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_051022) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_051309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "goals", force: :cascade do |t|
     t.string "goal"
     t.string "category"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "productivities", force: :cascade do |t|
+    t.integer "level"
+    t.time "time"
+    t.date "date"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

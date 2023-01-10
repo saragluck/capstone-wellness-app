@@ -143,6 +143,27 @@ Authorization: Bearer {{jwt}}
 }
 
 ### productivity show
-GET http://localhost:3000/productivity/3.json
+GET http://localhost:3000/productivity/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### productivity update
+PATCH http://localhost:3000/productivity/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "level": "5",
+  "time": "4:00",
+  "date": "01/01/2023"
+}
+
+### productivity delete
+DELETE http://localhost:3000/productivity/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### goal index
+GET http://localhost:3000/productivity.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
