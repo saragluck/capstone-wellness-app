@@ -1,7 +1,7 @@
 class SleepsController < ApplicationController
   before_action :authenticate_user
 
-  #Create action
+  #The create action
   def create
     sleep = Sleep.create(
       user_id: current_user.id,
