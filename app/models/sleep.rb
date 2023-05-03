@@ -15,10 +15,10 @@ class Sleep < ApplicationRecord
   end
 
   def calculate_duration(asleep, awake)
-   if ((awake-asleep)/3600).round < 0
-    24 + ((awake-asleep)/3600).round
+   if ((awake-asleep)/3600).round(2) < 0
+    24 + ((awake-asleep)/3600).round(2)
    else
-    ((awake-asleep)/3600).round
+    ((awake-asleep)/3600).round(2)
    end
 
   end
