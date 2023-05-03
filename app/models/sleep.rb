@@ -10,9 +10,16 @@ class Sleep < ApplicationRecord
       asleep: self.asleep.strftime("%I:%M %p"),
       awake: self.awake.strftime("%I:%M %p"),
       date: self.date.strftime("%B %e, %Y"),
-      duration: ((self.awake - self.asleep)/3600).abs
+      duration: self.calculate_duration(self.asleep, self.awake)
     }
   end
 
+  def calculate_duration(asleep, awake)
+   if ((awake-asleep)/3600).round < 0
+    24 + ((awake-asleep)/3600).round
+   else
+    ((awake-asleep)/3600).round
+   end
 
+  end
 end 
