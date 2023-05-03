@@ -1,14 +1,17 @@
 class SleepsController < ApplicationController
   before_action :authenticate_user
 
+
   #The create action
   def create
-    sleep = Sleep.create(
+
+    sleep = Sleep.create!(
       user_id: current_user.id,
       asleep: params[:asleep],
       awake: params[:awake],
       date: params[:date],
     )
+  
     render json: sleep.as_json
   end
 
