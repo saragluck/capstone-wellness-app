@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "/sleeps" => "sleeps#create"
   patch "/sleeps/:id" => "sleeps#update"
   delete "/sleeps/:id" => "sleeps#destroy"
+  get "/sleeps/sse" => "sleeps#sse"
 
   # Water actions
   get "/waters" => "waters#index"
