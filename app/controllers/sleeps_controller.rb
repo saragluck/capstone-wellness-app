@@ -2,6 +2,10 @@ class SleepsController < ApplicationController
   include ActionController::Live
   before_action :authenticate_user
 
+  # defines sse action
+
+  def sse
+  end
 
   #The create action
   def create
