@@ -20,18 +20,6 @@ class SleepsController < ApplicationController
   def index
     sleeps = current_user.sleeps
     render json: sleeps.as_json
-    
-    response.headers['Content-Type'] = 'text/event-stream'
-    sse = SSE.new(response.stream, event: 'time')
-    begin
-      loop do
-        sse.write({ :time => Time.now })
-        sleep 1
-      end
-    rescue ClientDisconnected
-    ensure
-      sse.close
-    end
   end
 
   #Show action
