@@ -5,19 +5,19 @@ class SleepsController < ApplicationController
   # defines sse action
 
   # def sse
-  #     # Set the response headers to indicate SSE
+  #     # Set the response headers to show it is SSE
   #     response.headers["Content-Type"] = "text/event-stream"
 
-  #     # Create an SSE object using the response stream
+  #     # Create an SSE object that frontend will listen for
   #     sse = SSE.new(response.stream, event: "sleepData")
   
-  #     # Subscribe to a channel or event relevant to sleep data changes
+  #     # Subscribe to sleep data channel
   #     sleep_data_channel.subscribe do |message|
   #       # Write the received message to the SSE connection
   #       sse.write(message.to_json)
   #     end
   
-  #     # Keep the SSE connection open until it's closed by the client or server
+  #     # Keep the SSE connection open until closed by the client or server
   #     rescue ClientDisconnected
   #     ensure
   #       # Close the SSE connection and unsubscribe from the sleep data channel
