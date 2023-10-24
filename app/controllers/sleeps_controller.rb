@@ -37,6 +37,7 @@ class SleepsController < ApplicationController
     )
     
     render json: sleep.as_json
+    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
   end
   
   #Index action
@@ -60,6 +61,7 @@ class SleepsController < ApplicationController
       date: params[:date] || sleep.date,
     )
     render json: sleep.as_json
+    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
   end
 
   #destroy action
@@ -67,5 +69,6 @@ class SleepsController < ApplicationController
     sleep = current_user.sleeps.find_by(id: params[:id])
     sleep.destroy
     render json: { message: "Sleep destroyed" }
+    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
   end
 end
