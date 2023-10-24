@@ -1,8 +1,7 @@
 class SleepsChannel < ApplicationCable::Channel
   def subscribed
     stop_all_streams
-    sleep = Sleep.find(params[:sleep_id])
-    stream_for sleep
+    stream_from 'SleepsChannel'
   end
 
   def unsubscribed
