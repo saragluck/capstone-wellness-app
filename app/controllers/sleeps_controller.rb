@@ -2,29 +2,6 @@ class SleepsController < ApplicationController
   include ActionController::Live
   before_action :authenticate_user
 
-  # defines sse action
-
-  # def sse
-  #     # Set the response headers to show it is SSE
-  #     response.headers["Content-Type"] = "text/event-stream"
-
-  #     # Create an SSE object that frontend will listen for
-  #     sse = SSE.new(response.stream, event: "sleepData")
-  
-  #     # Subscribe to sleep data channel
-  #     sleep_data_channel.subscribe do |message|
-  #       # Write the received message to the SSE connection
-  #       sse.write(message.to_json)
-  #     end
-  
-  #     # Keep the SSE connection open until closed by the client or server
-  #     rescue ClientDisconnected
-  #     ensure
-  #       # Close the SSE connection and unsubscribe from the sleep data channel
-  #       sse.close
-  #       sleep_data_channel.unsubscribe
-  #     end
-  # end
 
   #The create action
   def create
@@ -37,7 +14,8 @@ class SleepsController < ApplicationController
     )
     
     render json: sleep.as_json
-    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
+    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
+    # broadcast sleep
   end
   
   #Index action
@@ -61,7 +39,8 @@ class SleepsController < ApplicationController
       date: params[:date] || sleep.date,
     )
     render json: sleep.as_json
-    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
+    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
+    # broadcast sleep
   end
 
   #destroy action
@@ -69,6 +48,15 @@ class SleepsController < ApplicationController
     sleep = current_user.sleeps.find_by(id: params[:id])
     sleep.destroy
     render json: { message: "Sleep destroyed" }
-    SleepsChannel.broadcast_to('SleepsChannel', { event: 'update' })
+    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
+    # broadcast sleep
   end
 end
+
+# private
+
+# def broadcast(sleep)
+#   # ActiveModelSerializers::SerializableResource.new(object).as_json
+#   # returns the same thing sent by render json: object
+#   SleepsChannel.broadcast_to(sleep, ActiveModelSerializers::SerializableResource.new(sleep).as_json)
+# end
