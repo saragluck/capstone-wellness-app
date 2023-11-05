@@ -6,14 +6,20 @@ class SleepsController < ApplicationController
   #The create action
   def create
     
-    sleep = Sleep.create!(
+    
+    sleep = Sleep.new(
       user_id: current_user.id,
       asleep: params[:asleep],
       awake: params[:awake],
-      date: params[:date],
+      date: params[:date]
     )
     
-    render json: sleep.as_json
+    if sleep.save
+      render json: sleep.as_json
+    else
+      render json: { message: "missing stuff" }
+    end
+    
     # SleepsChannel.broadcast_to(sleep, { event: 'update' })
     # broadcast sleep
   end
