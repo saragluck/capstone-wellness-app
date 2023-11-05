@@ -1,5 +1,4 @@
 class SleepsController < ApplicationController
-  include ActionController::Live
   before_action :authenticate_user
 
 
@@ -19,9 +18,7 @@ class SleepsController < ApplicationController
     else
       render json: { message: "missing stuff" }
     end
-    
-    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
-    # broadcast sleep
+
   end
   
   #Index action
@@ -45,8 +42,7 @@ class SleepsController < ApplicationController
       date: params[:date] || sleep.date,
     )
     render json: sleep.as_json
-    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
-    # broadcast sleep
+ 
   end
 
   #destroy action
@@ -54,15 +50,6 @@ class SleepsController < ApplicationController
     sleep = current_user.sleeps.find_by(id: params[:id])
     sleep.destroy
     render json: { message: "Sleep destroyed" }
-    # SleepsChannel.broadcast_to(sleep, { event: 'update' })
-    # broadcast sleep
+
   end
 end
-
-# private
-
-# def broadcast(sleep)
-#   # ActiveModelSerializers::SerializableResource.new(object).as_json
-#   # returns the same thing sent by render json: object
-#   SleepsChannel.broadcast_to(sleep, ActiveModelSerializers::SerializableResource.new(sleep).as_json)
-# end

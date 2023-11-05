@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => "/cable"
+
 
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
