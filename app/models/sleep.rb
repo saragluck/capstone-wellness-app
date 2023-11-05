@@ -7,12 +7,13 @@ class Sleep < ApplicationRecord
   {
     id: self.id,
     user_id: self.user_id,
-    asleep: self.asleep&.strftime("%I:%M %p"),
-    awake: self.awake&.strftime("%I:%M %p"),
-    date: self.date&.strftime("%B %e, %Y"),
+    asleep: self.asleep.nil? ? nil : self.asleep.strftime("%I:%M %p"),
+    awake: self.awake.nil? ? nil : self.awake.strftime("%I:%M %p"),
+    date: self.date.nil? ? nil : self.date.strftime("%B %e, %Y"),
     duration: self.calculate_duration(self.asleep, self.awake)
   }
 end
+
 
   def calculate_duration(asleep, awake)
    if ((awake-asleep)/3600).round(2) < 0
