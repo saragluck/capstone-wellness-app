@@ -1,6 +1,6 @@
 class Sleep < ApplicationRecord
   belongs_to :user
-  validates :asleep, :awake, :date, presence: true
+  
   # I am customizing the 'as_json' method so that I can just call the as_json method in my controller and it will do all of my date/time/duration formatting so that I don't need to do it in the frontend
 
   def as_json(options = {})
@@ -10,7 +10,7 @@ class Sleep < ApplicationRecord
     asleep: self.asleep.nil? ? nil : self.asleep.strftime("%I:%M %p"),
     awake: self.awake.nil? ? nil : self.awake.strftime("%I:%M %p"),
     date: self.date.nil? ? nil : self.date.strftime("%B %e, %Y"),
-    duration: self.calculate_duration(self.asleep, self.awake)
+    duration: self.asleep.nil? && self.awake.nil? ? nil : self.calculate_duration(self.asleep, self.awake)
   }
 end
 
