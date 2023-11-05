@@ -8,7 +8,12 @@ class WatersController < ApplicationController
       date: params[:date],
       amount: params[:amount],
     )
-    render json: water.as_json
+    
+    if water.save
+      render json: water.as_json
+    else
+      render json: { message: "missing stuff" }
+    end
   end
 
   #Index action
